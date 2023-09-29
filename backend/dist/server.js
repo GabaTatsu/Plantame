@@ -32,9 +32,12 @@ const morgan_1 = __importDefault(require("morgan"));
 const cors_1 = __importDefault(require("cors"));
 const dotenv = __importStar(require("dotenv"));
 const userRoutes_1 = __importDefault(require("./routes/userRoutes"));
+const projectRoutes_1 = __importDefault(require("./routes/projectRoutes"));
 const app = (0, express_1.default)();
 dotenv.config();
-const PORT = process.env.PORT ? parseInt(process.env.PORT, 10) : undefined;
+const PORT = process.env.PORT
+    ? parseInt(process.env.PORT, 10)
+    : undefined;
 // Middleware
 app.use(express_1.default.json()); // Middleware para el análisis de solicitudes JSON
 app.use(express_1.default.static('static'));
@@ -45,6 +48,8 @@ app.use((0, cors_1.default)({
 })); // Middleware para habilitar CORS
 // Rutas para usuarios
 app.use('/api', userRoutes_1.default);
+// Rutas para proyectos
+app.use('/api', projectRoutes_1.default);
 // Middleware de manejo de errores global
 app.use((err, req, res, next) => {
     console.error(err);
