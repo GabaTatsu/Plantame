@@ -1,11 +1,8 @@
 import React from 'react';
+import Header from '../../components/Header';
 
 const HomePage: React.FC = () => {
-    return (
-        <div>
-            <h1>Home Page</h1>
-        </div>
-    );
+    return <Header />;
 };
 
 export default HomePage;

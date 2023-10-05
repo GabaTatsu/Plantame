@@ -46,7 +46,7 @@ async function main(): Promise<void> {
                 CREATE TABLE IF NOT EXISTS sensorMonitor (
                     id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
                     hour DATETIME,
-                    temperature DECIMAL(4, 1) CHECK (temperature >= -50 AND temperature <= 100),
+                    temperature DECIMAL(4, 1) CHECK (temperature >= -40 AND temperature <= 125),
                     humidity DECIMAL(4, 1) CHECK (humidity >= 0 AND humidity <= 100),
                     idProject INT UNSIGNED NOT NULL,
                     FOREIGN KEY (idProject) REFERENCES project (id)
